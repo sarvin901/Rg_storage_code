@@ -12,3 +12,12 @@ resource "azurerm_storage_account" "st12" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+resource "azurerm_storage_account" "st12" {
+    depends_on = [azurerm_resource_group.rg]
+  for_each = var.resource_group
+  name                     = "stgarvindaaaa"
+  resource_group_name      = azurerm_resource_group.rg[each.key].name
+  location                 = azurerm_resource_group.rg[each.key].location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
