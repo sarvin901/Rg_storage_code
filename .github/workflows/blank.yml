@@ -84,4 +84,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-
+        run: terraform apply -auto-approve
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
